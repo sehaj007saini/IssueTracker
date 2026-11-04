@@ -32,6 +32,8 @@
 .project
 .classpath
 .settings/
+.junie/
+.mvn/wrapper/maven-wrapper.jar
 
 ### OS Files ###
 .DS_Store
