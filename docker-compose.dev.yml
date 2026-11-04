@@ -1,0 +1,42 @@
+version: '3.8'
+
+# Development override - use this for local development
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  database:
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/src/main/resources/db/migration:/docker-entrypoint-initdb.d/migrations:ro
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: build  # Use build stage for hot reload
+    volumes:
+      - ./backend/src:/app/src:ro
+      - ./backend/pom.xml:/app/pom.xml:ro
+      - backend_m2:/root/.m2
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DEVTOOLS_RESTART_ENABLED: "true"
+    command: mvn spring-boot:run
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./frontend/src:/app/src:ro
+      - ./frontend/public:/app/public:ro
+      - ./frontend/package.json:/app/package.json:ro
+      - ./frontend/vite.config.ts:/app/vite.config.ts:ro
+      - ./frontend/tsconfig.json:/app/tsconfig.json:ro
+      - frontend_node_modules:/app/node_modules
+    command: npm run dev -- --host
+
+volumes:
+  backend_m2:
+  frontend_node_modules:

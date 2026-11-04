@@ -1,0 +1,115 @@
+{
+  "common": {
+    "appName": "भारत स्थानीय समस्या OS",
+    "home": "होम",
+    "login": "लॉगिन",
+    "logout": "लॉगआउट",
+    "register": "रजिस्टर",
+    "submit": "सबमिट करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "close": "बंद करें",
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि",
+    "success": "सफलता"
+  },
+  "auth": {
+    "email": "ईमेल पता",
+    "password": "पासवर्ड",
+    "confirmPassword": "पासवर्ड की पुष्टि करें",
+    "name": "पूरा नाम",
+    "phone": "फ़ोन नंबर",
+    "signIn": "साइन इन करें",
+    "signUp": "खाता बनाएं",
+    "dontHaveAccount": "खाता नहीं है?",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "signingIn": "साइन इन हो रहा है...",
+    "creatingAccount": "खाता बनाया जा रहा है..."
+  },
+  "nav": {
+    "reportIssue": "समस्या रिपोर्ट करें",
+    "myReports": "मेरी रिपोर्ट",
+    "officerDashboard": "अधिकारी डैशबोर्ड",
+    "analytics": "विश्लेषण",
+    "notifications": "सूचनाएं"
+  },
+  "home": {
+    "title": "अपने समुदाय में नागरिक समस्याओं की रिपोर्ट करें",
+    "subtitle": "गड्ढों, टूटे बुनियादी ढांचे और अन्य नागरिक समस्याओं की रिपोर्ट करके अपने पड़ोस को बेहतर बनाने में मदद करें।",
+    "reportButton": "समस्या रिपोर्ट करें",
+    "viewReportsButton": "मेरी रिपोर्ट देखें",
+    "howItWorks": "यह कैसे काम करता है",
+    "step1Title": "समस्या देखें",
+    "step1Desc": "अपने क्षेत्र में गड्ढे या बुनियादी ढांचे की समस्या देखें",
+    "step2Title": "इसकी रिपोर्ट करें",
+    "step2Desc": "एक फोटो लें और अपने स्थान के साथ रिपोर्ट सबमिट करें",
+    "step3Title": "अधिकारी समाधान करें",
+    "step3Desc": "नगरपालिका अधिकारी रिपोर्ट की गई समस्या को ठीक करने पर काम करते हैं",
+    "step4Title": "आप सत्यापित करें",
+    "step4Desc": "पुष्टि करें कि समस्या ठीक से ठीक हो गई है"
+  },
+  "issue": {
+    "reportTitle": "गड्ढे की रिपोर्ट करें",
+    "description": "विवरण",
+    "address": "पता/लैंडमार्क",
+    "photo": "फोटो",
+    "location": "स्थान",
+    "captureLocation": "वर्तमान स्थान कैप्चर करें",
+    "locationCaptured": "स्थान कैप्चर किया गया",
+    "status": "स्थिति",
+    "severity": "गंभीरता",
+    "category": "श्रेणी",
+    "reportCount": "रिपोर्ट",
+    "supportCount": "समर्थन",
+    "createdAt": "बनाया गया",
+    "updatedAt": "अपडेट किया गया",
+    "submitting": "सबमिट हो रहा है...",
+    "submitReport": "रिपोर्ट सबमिट करें"
+  },
+  "status": {
+    "OPEN": "खुला",
+    "ASSIGNED": "सौंपा गया",
+    "IN_PROGRESS": "प्रगति में",
+    "RESOLUTION_SUBMITTED": "समाधान सबमिट किया गया",
+    "UNDER_VERIFICATION": "सत्यापन के तहत",
+    "RESOLVED": "हल हो गया",
+    "REOPENED": "फिर से खोला गया"
+  },
+  "severity": {
+    "LOW": "कम",
+    "MEDIUM": "मध्यम",
+    "HIGH": "उच्च",
+    "CRITICAL": "गंभीर"
+  },
+  "comments": {
+    "title": "टिप्पणियाँ",
+    "addComment": "एक टिप्पणी जोड़ें...",
+    "postComment": "टिप्पणी पोस्ट करें",
+    "posting": "पोस्ट हो रहा है...",
+    "reply": "जवाब दें",
+    "replyingTo": "टिप्पणी का जवाब दे रहे हैं",
+    "noComments": "अभी तक कोई टिप्पणी नहीं। पहले टिप्पणी करें!",
+    "edited": "संपादित"
+  },
+  "analytics": {
+    "title": "विश्लेषण डैशबोर्ड",
+    "totalIssues": "कुल समस्याएं",
+    "openIssues": "खुली समस्याएं",
+    "inProgress": "प्रगति में",
+    "resolved": "हल हो गया",
+    "averageResolutionTime": "औसत समाधान समय",
+    "issuesThisWeek": "इस सप्ताह की समस्याएं",
+    "reopenedIssues": "फिर से खोली गई समस्याएं",
+    "byStatus": "स्थिति के अनुसार",
+    "bySeverity": "गंभीरता के अनुसार",
+    "byCategory": "श्रेणी के अनुसार",
+    "byWard": "वार्ड के अनुसार"
+  },
+  "notifications": {
+    "title": "सूचनाएं",
+    "markAllRead": "सभी को पढ़ा हुआ चिह्नित करें",
+    "noNotifications": "अभी तक कोई सूचना नहीं"
+  }
+}

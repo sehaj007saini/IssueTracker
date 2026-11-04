@@ -1,0 +1,134 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Uploads ###
+uploads/
+**/uploads/
+
+### Environment Variables ###
+.env
+.env.*
+!.env.example
+.env.local
+.env.production
+.env.staging
+.env.development
+
+### Sensitive Configuration Files ###
+# Application configuration with secrets
+application-local.yml
+application-prod.yml
+application-*.yml
+!application.yml
+**/application-secrets.yml
+
+# Database configuration
+database.properties
+jdbc.properties
+
+# Security configuration
+security.properties
+jwt.properties
+
+# Twilio credentials
+twilio.properties
+sms.properties
+
+### Logs ###
+logs/
+*.log
+*.log.*
+spring.log
+application.log
+
+### Temporary Files ###
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+### OS Files ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Backup Files ###
+*.bak
+*.backup
+*.old
+*.orig
+
+### Database Files ###
+*.db
+*.sqlite
+*.sqlite3
+
+### SSL/TLS Certificates ###
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+
+### Maven Wrapper (if you want to exclude it) ###
+# .mvn/wrapper/maven-wrapper.jar
+# .mvn/wrapper/maven-wrapper.properties
+
+### Sensitive Data ###
+# Any files containing passwords, tokens, or API keys
+*password*
+*secret*
+*token*
+*credential*
+*api-key*
+!**/src/**/PasswordEncoder.java
+!**/src/**/PasswordValidator.java
+!**/src/**/TokenProvider.java
+!**/src/**/SecretConfig.java
+
+### Test Coverage Reports ###
+coverage/
+*.coverage
+.nyc_output/
+
+### Generated Documentation ###
+docs/generated/
+api-docs/
+
+### Local Development ###
+local.properties
+dev.properties

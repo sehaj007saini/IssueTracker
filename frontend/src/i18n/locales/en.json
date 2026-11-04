@@ -1,0 +1,115 @@
+{
+  "common": {
+    "appName": "India Local Problems OS",
+    "home": "Home",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "auth": {
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "signingIn": "Signing in...",
+    "creatingAccount": "Creating account..."
+  },
+  "nav": {
+    "reportIssue": "Report Issue",
+    "myReports": "My Reports",
+    "officerDashboard": "Officer Dashboard",
+    "analytics": "Analytics",
+    "notifications": "Notifications"
+  },
+  "home": {
+    "title": "Report Civic Issues in Your Community",
+    "subtitle": "Help improve your neighborhood by reporting potholes, broken infrastructure, and other civic problems.",
+    "reportButton": "Report an Issue",
+    "viewReportsButton": "View My Reports",
+    "howItWorks": "How It Works",
+    "step1Title": "Spot a Problem",
+    "step1Desc": "Notice a pothole or infrastructure issue in your area",
+    "step2Title": "Report It",
+    "step2Desc": "Take a photo and submit the report with your location",
+    "step3Title": "Officers Resolve",
+    "step3Desc": "Municipal officers work on fixing the reported issue",
+    "step4Title": "You Verify",
+    "step4Desc": "Confirm the issue has been properly fixed"
+  },
+  "issue": {
+    "reportTitle": "Report a Pothole",
+    "description": "Description",
+    "address": "Address/Landmark",
+    "photo": "Photo",
+    "location": "Location",
+    "captureLocation": "Capture Current Location",
+    "locationCaptured": "Location captured",
+    "status": "Status",
+    "severity": "Severity",
+    "category": "Category",
+    "reportCount": "Reports",
+    "supportCount": "Supports",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "submitting": "Submitting...",
+    "submitReport": "Submit Report"
+  },
+  "status": {
+    "OPEN": "Open",
+    "ASSIGNED": "Assigned",
+    "IN_PROGRESS": "In Progress",
+    "RESOLUTION_SUBMITTED": "Resolution Submitted",
+    "UNDER_VERIFICATION": "Under Verification",
+    "RESOLVED": "Resolved",
+    "REOPENED": "Reopened"
+  },
+  "severity": {
+    "LOW": "Low",
+    "MEDIUM": "Medium",
+    "HIGH": "High",
+    "CRITICAL": "Critical"
+  },
+  "comments": {
+    "title": "Comments",
+    "addComment": "Add a comment...",
+    "postComment": "Post Comment",
+    "posting": "Posting...",
+    "reply": "Reply",
+    "replyingTo": "Replying to comment",
+    "noComments": "No comments yet. Be the first to comment!",
+    "edited": "edited"
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "totalIssues": "Total Issues",
+    "openIssues": "Open Issues",
+    "inProgress": "In Progress",
+    "resolved": "Resolved",
+    "averageResolutionTime": "Average Resolution Time",
+    "issuesThisWeek": "Issues This Week",
+    "reopenedIssues": "Reopened Issues",
+    "byStatus": "By Status",
+    "bySeverity": "By Severity",
+    "byCategory": "By Category",
+    "byWard": "By Ward"
+  },
+  "notifications": {
+    "title": "Notifications",
+    "markAllRead": "Mark all read",
+    "noNotifications": "No notifications yet"
+  }
+}
