@@ -66,8 +66,8 @@ The Disaster Management System is a full-stack web application that enables citi
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/disaster-management-system.git
-cd disaster-management-system
+git clone https://github.com/sehaj007saini/IssueTracker.git
+cd IssueTracker
 ```
 
 2. **Configure environment variables**
@@ -99,14 +99,7 @@ docker-compose logs -f
 - Backend API: http://localhost:8080/api/v1
 - Database: localhost:5432
 
-## 📖 Documentation
 
-- [Getting Started Guide](GETTING_STARTED.md)
-- [Start Application](START_APPLICATION.md)
-- [Database Schema](DATABASE_SCHEMA.md)
-- [Security Documentation](SECURITY.md)
-- [Docker Configuration](DOCKER_DATA_LOCATION.md)
-- [API Documentation](docs/API.md) _(coming soon)_
 
 ## 🎯 User Roles & Features
 
@@ -135,7 +128,7 @@ docker-compose logs -f
 
 ## 🗄️ Database Schema
 
-The system uses PostgreSQL with PostGIS extension for spatial data support.
+The system uses PostgreSQL 16 with PostGIS extension for spatial data support.
 
 ### Core Tables
 - `users` - User accounts and authentication
@@ -147,20 +140,16 @@ The system uses PostgreSQL with PostGIS extension for spatial data support.
 - `notifications` - User notifications
 - `notification_preferences` - User settings
 
-See [DATABASE_SCHEMA.md](DATABASE_SCHEMA.md) for complete schema details.
-
 ## 🔒 Security
 
 - JWT-based authentication with 24-hour expiration
-- BCrypt password hashing
+- BCrypt password hashing (strength: 12)
 - Role-based access control (RBAC)
 - Input validation and sanitization
-- SQL injection prevention
+- SQL injection prevention (JPA/Hibernate)
 - XSS protection
 - CORS configuration
-- Secure file uploads
-
-See [SECURITY.md](SECURITY.md) for detailed security information.
+- Secure file uploads with validation
 
 ## 📦 Project Structure
 
@@ -275,7 +264,7 @@ TWILIO_WHATSAPP_NUMBER=your_whatsapp_number
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) first.
+Contributions are welcome!
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -285,7 +274,7 @@ Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTIN
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 
@@ -298,8 +287,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- Documentation: [docs/](docs/)
-- Issues: [GitHub Issues](https://github.com/YOUR_USERNAME/disaster-management-system/issues)
+- Issues: [GitHub Issues](https://github.com/sehaj007saini/IssueTracker/issues)
 - Email: sehajsainif5@gmail.com
 
 ## 🗺️ Roadmap
