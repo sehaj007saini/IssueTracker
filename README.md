@@ -18,8 +18,10 @@ The Disaster Management System is a full-stack web application that enables citi
 - 🔐 **Multi-method Authentication** - Email/password and OTP-based login (SMS/WhatsApp)
 - 📍 **Geospatial Mapping** - Interactive maps with PostGIS-powered location tracking
 - 📷 **Camera Capture** - Take photos directly from device camera for instant reporting
+- 🎤 **Voice Input** - Speech-to-text for describing issues hands-free
 - 🌙 **Dark Mode** - Eye-friendly dark theme with seamless toggle
 - 📸 **Multiple Photos** - Upload up to 5 evidence photos per issue
+- 🖼️ **Image Compression** - Automatic image optimization before upload
 - 📤 **Social Sharing** - Share issues on WhatsApp, Facebook, Twitter, and more
 - 📊 **Status Timeline** - Visual progress tracking with timeline view
 - 📡 **Real-time Feed** - Live updates of new issues as they're reported
@@ -27,6 +29,10 @@ The Disaster Management System is a full-stack web application that enables citi
 - 👤 **User Profiles** - Detailed profiles with statistics, badges, and reputation
 - ⚡ **Priority System** - AI-based priority ranking (Critical, High, Medium, Low)
 - 📥 **Export Reports** - Download data as PDF, Excel, or CSV
+- ⌨️ **Keyboard Shortcuts** - Power-user shortcuts for quick navigation
+- 🎯 **Command Palette** - Quick actions menu (Ctrl+K)
+- 🔔 **Notification Center** - Centralized notification management
+- 📱 **PWA Support** - Install as app, works offline
 - 🔄 **Real-time Updates** - WebSocket notifications for instant status changes
 - 👥 **Role-based Access** - Distinct workflows for Citizens, Officers, and Admins
 - 📱 **Multi-channel Notifications** - SMS and WhatsApp via Twilio
@@ -317,6 +323,12 @@ This project is licensed under the MIT License.
 - [x] User profile & statistics
 - [x] Priority ranking system
 - [x] Export reports (PDF/Excel/CSV)
+- [x] Voice input for reporting
+- [x] Image compression & optimization
+- [x] Keyboard shortcuts
+- [x] Command palette (Ctrl+K)
+- [x] Notification center
+- [x] PWA support (install as app)
 - [ ] Email notifications
 - [ ] AI-powered categorization
 - [ ] Chatbot support
