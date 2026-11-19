@@ -17,6 +17,7 @@ The Disaster Management System is a full-stack web application that enables citi
 
 - 🔐 **Multi-method Authentication** - Email/password and OTP-based login (SMS/WhatsApp)
 - 📍 **Geospatial Mapping** - Interactive maps with PostGIS-powered location tracking
+- 📷 **Camera Capture** - Take photos directly from device camera for instant reporting
 - 🔄 **Real-time Updates** - WebSocket notifications for instant status changes
 - 👥 **Role-based Access** - Distinct workflows for Citizens, Officers, and Admins
 - 📱 **Multi-channel Notifications** - SMS and WhatsApp via Twilio
@@ -106,6 +107,7 @@ docker-compose logs -f
 ### 👤 Citizens
 - Register and authenticate (email/password or OTP)
 - Report issues with location and photo evidence
+- **Capture photos directly from camera** 📷
 - Track issue status in real-time
 - View issues on interactive map
 - Support/upvote issues
