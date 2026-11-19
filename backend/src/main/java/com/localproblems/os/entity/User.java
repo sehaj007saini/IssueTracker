@@ -33,6 +33,18 @@ public class User {
     @LastModifiedDate
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+    @Column(name = "reputation_score")
+    private Integer reputationScore = 50;
+    @Column(name = "total_reports")
+    private Integer totalReports = 0;
+    @Column(name = "verified_reports")
+    private Integer verifiedReports = 0;
+    @Column(name = "rejected_reports")
+    private Integer rejectedReports = 0;
+    @Column(name = "spam_flags")
+    private Integer spamFlags = 0;
+    @Column(name = "last_report_time")
+    private LocalDateTime lastReportTime;
 
 
     public enum UserRole {
@@ -75,6 +87,30 @@ public class User {
         return this.updatedAt;
     }
 
+    public Integer getReputationScore() {
+        return this.reputationScore;
+    }
+
+    public Integer getTotalReports() {
+        return this.totalReports;
+    }
+
+    public Integer getVerifiedReports() {
+        return this.verifiedReports;
+    }
+
+    public Integer getRejectedReports() {
+        return this.rejectedReports;
+    }
+
+    public Integer getSpamFlags() {
+        return this.spamFlags;
+    }
+
+    public LocalDateTime getLastReportTime() {
+        return this.lastReportTime;
+    }
+
     public void setId(final Long id) {
         this.id = id;
     }
@@ -109,6 +145,30 @@ public class User {
 
     public void setUpdatedAt(final LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void setReputationScore(final Integer reputationScore) {
+        this.reputationScore = reputationScore;
+    }
+
+    public void setTotalReports(final Integer totalReports) {
+        this.totalReports = totalReports;
+    }
+
+    public void setVerifiedReports(final Integer verifiedReports) {
+        this.verifiedReports = verifiedReports;
+    }
+
+    public void setRejectedReports(final Integer rejectedReports) {
+        this.rejectedReports = rejectedReports;
+    }
+
+    public void setSpamFlags(final Integer spamFlags) {
+        this.spamFlags = spamFlags;
+    }
+
+    public void setLastReportTime(final LocalDateTime lastReportTime) {
+        this.lastReportTime = lastReportTime;
     }
 
     @java.lang.Override

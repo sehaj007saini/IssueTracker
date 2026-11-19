@@ -1,6 +1,10 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from '../../components/layout/Header'
+import ValidationResults from '../../components/fraud/ValidationResults'
+import SimpleCaptcha from '../../components/security/SimpleCaptcha'
+import { validateIssueReport, createIssueReport, FraudCheckResponse } from '../../services/issueApi'
+import { detectFraud } from '../../services/fraudDetection'
 
 export default function ReportIssuePage() {
   const navigate = useNavigate()
@@ -9,12 +13,16 @@ export default function ReportIssuePage() {
     address: '',
     photo: null as File | null,
   })
-  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null)
+  const [location, setLocation] = useState<{ lat: number; lng: number; accuracy?: number } | null>(null)
   const [isLoadingLocation, setIsLoadingLocation] = useState(false)
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isValidating, setIsValidating] = useState(false)
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
   const [showCamera, setShowCamera] = useState(false)
+  const [validationResult, setValidationResult] = useState<FraudCheckResponse | null>(null)
+  const [showValidationModal, setShowValidationModal] = useState(false)
+  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const streamRef = useRef<MediaStream | null>(null)
@@ -42,13 +50,15 @@ export default function ReportIssuePage() {
         setLocation({
           lat: position.coords.latitude,
           lng: position.coords.longitude,
+          accuracy: position.coords.accuracy,
         })
         setIsLoadingLocation(false)
       },
       (error) => {
         setError('Unable to retrieve your location. Please enable location services.')
         setIsLoadingLocation(false)
-      }
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     )
   }
 
@@ -148,9 +158,68 @@ export default function ReportIssuePage() {
       return
     }
 
+    if (!formData.description || formData.description.length < 20) {
+      setError('Please provide a detailed description (minimum 20 characters)')
+      return
+    }
+
+    if (!isCaptchaVerified) {
+      setError('Please complete the security verification')
+      return
+    }
+
+    // Perform validation
+    setIsValidating(true)
+    
+    try {
+      // Get auth token from localStorage
+      const token = localStorage.getItem('authToken')
+      if (!token) {
+        setError('Please login to report an issue')
+        navigate('/login')
+        return
+      }
+
+      // Call backend validation API
+      const validationData = {
+        description: formData.description,
+        latitude: location.lat,
+        longitude: location.lng,
+        accuracy: location.accuracy,
+        hasPhoto: true,
+      }
+
+      const result = await validateIssueReport(validationData, token)
+      setValidationResult(result)
+      setShowValidationModal(true)
+      
+      // If validation fails, show modal and stop
+      if (!result.isValid) {
+        setIsValidating(false)
+        return
+      }
+      
+      setIsValidating(false)
+    } catch (err: any) {
+      setIsValidating(false)
+      setError(err.response?.data?.message || 'Validation failed. Please try again.')
+    }
+  }
+
+  const proceedWithSubmission = async () => {
+    if (!location || !formData.photo) return
+    
+    setShowValidationModal(false)
     setIsSubmitting(true)
 
     try {
+      const token = localStorage.getItem('authToken')
+      if (!token) {
+        setError('Please login to report an issue')
+        navigate('/login')
+        return
+      }
+
       const data = new FormData()
       data.append('categoryId', '1') // Pothole category
       data.append('description', formData.description)
@@ -159,11 +228,7 @@ export default function ReportIssuePage() {
       data.append('address', formData.address)
       data.append('photo', formData.photo)
 
-      // TODO: Call API to submit issue
-      // const response = await issueService.createIssue(data)
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      await createIssueReport(data, token)
       
       alert('Issue reported successfully!')
       navigate('/')
@@ -177,6 +242,15 @@ export default function ReportIssuePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
+
+      {/* Validation Modal */}
+      {showValidationModal && validationResult && (
+        <ValidationResults
+          result={validationResult}
+          onClose={() => setShowValidationModal(false)}
+          onProceed={validationResult.isValid ? proceedWithSubmission : undefined}
+        />
+      )}
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white shadow sm:rounded-lg">
@@ -354,6 +428,11 @@ export default function ReportIssuePage() {
                 />
               </div>
 
+              <SimpleCaptcha 
+                onVerify={setIsCaptchaVerified}
+                onReset={() => setIsCaptchaVerified(false)}
+              />
+
               <div className="flex space-x-3">
                 <button
                   type="button"
@@ -364,10 +443,18 @@ export default function ReportIssuePage() {
                 </button>
                 <button
                   type="submit"
-                  disabled={isSubmitting || !location || !formData.photo}
+                  disabled={isValidating || isSubmitting || !location || !formData.photo || formData.description.length < 20 || !isCaptchaVerified}
                   className="flex-1 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Report'}
+                  {isValidating ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Validating...
+                    </>
+                  ) : isSubmitting ? 'Submitting...' : 'Validate & Submit'}
                 </button>
               </div>
             </form>
