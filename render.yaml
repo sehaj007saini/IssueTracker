@@ -1,9 +1,7 @@
 databases:
   - name: issuetracker-db
     databaseName: disaster_management
-    user: postgres
     plan: free
-    postgresMajorVersion: 16
 
 services:
   # Backend Service
