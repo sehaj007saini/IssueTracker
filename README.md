@@ -18,6 +18,10 @@ The Disaster Management System is a full-stack web application that enables citi
 - 🔐 **Multi-method Authentication** - Email/password and OTP-based login (SMS/WhatsApp)
 - 📍 **Geospatial Mapping** - Interactive maps with PostGIS-powered location tracking
 - 📷 **Camera Capture** - Take photos directly from device camera for instant reporting
+- 🌙 **Dark Mode** - Eye-friendly dark theme with seamless toggle
+- 📸 **Multiple Photos** - Upload up to 5 evidence photos per issue
+- 📤 **Social Sharing** - Share issues on WhatsApp, Facebook, Twitter, and more
+- 📊 **Status Timeline** - Visual progress tracking with timeline view
 - 🔄 **Real-time Updates** - WebSocket notifications for instant status changes
 - 👥 **Role-based Access** - Distinct workflows for Citizens, Officers, and Admins
 - 📱 **Multi-channel Notifications** - SMS and WhatsApp via Twilio
@@ -108,6 +112,10 @@ docker-compose logs -f
 - Register and authenticate (email/password or OTP)
 - Report issues with location and photo evidence
 - **Capture photos directly from camera** 📷
+- **Upload multiple photos** (up to 5 per issue) 📸
+- **Share issues on social media** 📤
+- **View status timeline** with visual progress 📊
+- **Switch to dark mode** for better viewing 🌙
 - Track issue status in real-time
 - View issues on interactive map
 - Support/upvote issues
@@ -294,10 +302,20 @@ This project is licensed under the MIT License.
 
 ## 🗺️ Roadmap
 
-- [ ] Mobile app (React Native)
+- [x] Camera capture for photos
+- [x] Dark mode support
+- [x] Multiple photos upload
+- [x] Social media sharing
+- [x] Status timeline visualization
 - [ ] Email notifications
-- [ ] Advanced analytics with AI
-- [ ] Export reports to PDF
+- [ ] User profile pages
+- [ ] Advanced analytics
+- [ ] Export reports (PDF/Excel)
+- [ ] Mobile app (React Native)
+- [ ] AI-powered categorization
+- [ ] Chatbot support
+- [ ] Image recognition
+- [ ] Video evidence support
 - [ ] Public API for integrations
 - [ ] Automated issue routing
 - [ ] Multi-tenancy support
