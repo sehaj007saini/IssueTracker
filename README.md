@@ -16,6 +16,7 @@ The Disaster Management System is a full-stack web application that enables citi
 ### Key Features
 
 - 🔐 **Multi-method Authentication** - Email/password and OTP-based login (SMS/WhatsApp)
+- 🛡️ **Advanced Fraud Detection** - Multi-layered validation system prevents fake issues
 - 📍 **Geospatial Mapping** - Interactive maps with PostGIS-powered location tracking
 - 📷 **Camera Capture** - Take photos directly from device camera for instant reporting
 - 🎤 **Voice Input** - Speech-to-text for describing issues hands-free
@@ -112,8 +113,68 @@ docker-compose logs -f
 
 5. **Access the application**
 - Frontend: http://localhost:3000
-- Backend API: http://localhost:8080/api/v1
+- Backend API: http://localhost:8080/api
 - Database: localhost:5432
+
+**Default Credentials:**
+- Email: `admin@example.com`
+- Password: `Admin@123`
+
+⚠️ **Change default password immediately after first login!**
+
+---
+
+## 🚀 Production Deployment
+
+### Quick Deployment (Ubuntu Server)
+
+```bash
+# One-line deployment script
+sudo bash <(curl -s https://raw.githubusercontent.com/sehaj007saini/IssueTracker/main/deploy.sh)
+```
+
+The script will:
+- ✅ Install Docker & Docker Compose
+- ✅ Clone repository
+- ✅ Configure environment
+- ✅ Setup Nginx reverse proxy
+- ✅ Configure firewall
+- ✅ Setup automated backups
+- ✅ Start all services
+
+### Manual Deployment
+
+**See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for detailed instructions:**
+
+- AWS (EC2, Elastic Beanstalk, ECS)
+- Azure App Service
+- Google Cloud Platform
+- DigitalOcean Droplets
+- VPS (Linode, Vultr, Hetzner)
+- Docker on any Ubuntu server
+
+### Deployment Options Comparison
+
+| Platform | Difficulty | Cost/Month | Best For |
+|----------|-----------|------------|----------|
+| AWS EC2 | Medium | $30-100 | Scalability, Enterprise |
+| DigitalOcean | Easy | $20-50 | Small-Medium Projects |
+| Azure | Medium | $40-120 | Microsoft Ecosystem |
+| VPS (Generic) | Easy | $15-40 | Budget-Friendly |
+| Docker on VPS | Easy | $10-30 | Full Control |
+
+### Production Checklist
+
+- [ ] Change all default passwords
+- [ ] Configure SSL/TLS certificates
+- [ ] Setup domain name and DNS
+- [ ] Configure Twilio for SMS/WhatsApp
+- [ ] Enable automated backups
+- [ ] Setup monitoring and alerts
+- [ ] Configure firewall rules
+- [ ] Review security settings
+- [ ] Test fraud detection system
+- [ ] Load test the application
 
 
 
@@ -163,14 +224,67 @@ The system uses PostgreSQL 16 with PostGIS extension for spatial data support.
 
 ## 🔒 Security
 
+### Authentication & Authorization
 - JWT-based authentication with 24-hour expiration
 - BCrypt password hashing (strength: 12)
 - Role-based access control (RBAC)
+- Multi-factor authentication via OTP (SMS/WhatsApp)
+
+### Data Protection
 - Input validation and sanitization
 - SQL injection prevention (JPA/Hibernate)
 - XSS protection
 - CORS configuration
 - Secure file uploads with validation
+
+### 🛡️ Advanced Fraud Detection System
+
+The application includes a **comprehensive fraud detection system** to prevent fake, spam, and malicious issue reports. See [FRAUD_DETECTION.md](./FRAUD_DETECTION.md) for complete documentation.
+
+#### Key Features
+- **6-Layer Validation System**
+  1. Content Quality Check - Detects spam, profanity, links, template text
+  2. Location Validity Check - Verifies GPS accuracy and service area
+  3. User Reputation System - Tracks verified/rejected reports (0-100 score)
+  4. Rate Limiting - Prevents spam (5-min between reports, daily limits)
+  5. Duplicate Content Detection - Identifies similar/duplicate reports
+  6. Photo Requirements - Enforces evidence submission
+
+- **CAPTCHA Protection** - Simple math challenge prevents bot submissions
+
+- **User Reputation Tracking**
+  - `reputation_score` (0-100): Overall trust level
+  - Tracks verified reports, rejected reports, spam flags
+  - Auto-suspension after 5 spam flags
+  - Rewards trusted users with +15 bonus validation points
+
+- **Visual Validation Results** - Interactive modal shows:
+  - Validation score (0-100, minimum 60 to pass)
+  - Critical blockers that must be fixed
+  - Warnings for review
+  - All passed checks
+  - User reputation score
+
+- **Double Validation** - Validates both frontend and backend to prevent bypass
+
+#### Scoring System
+```
+Valid Submission Requires:
+✓ Score ≥ 60/100
+✓ Zero blockers
+✓ CAPTCHA completed
+✓ Photo evidence provided
+✓ GPS location captured
+```
+
+#### What Gets Blocked
+- ❌ Descriptions <20 characters
+- ❌ External links in description
+- ❌ Spam keywords (click here, buy now, etc.)
+- ❌ Suspicious GPS coordinates (0,0)
+- ❌ Reports <5 minutes apart from same user
+- ❌ Users with ≥5 spam flags
+- ❌ Template/test submissions
 
 ## 📦 Project Structure
 

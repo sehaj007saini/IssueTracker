@@ -7,8 +7,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 
-# Copy environment file (create if doesn't exist)
-COPY .env* ./
+# Build arguments for environment variables
+ARG VITE_API_BASE_URL
+ARG VITE_WS_URL
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+ENV VITE_WS_URL=$VITE_WS_URL
 
 # Copy source code and build
 COPY . .
