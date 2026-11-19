@@ -22,6 +22,11 @@ The Disaster Management System is a full-stack web application that enables citi
 - 📸 **Multiple Photos** - Upload up to 5 evidence photos per issue
 - 📤 **Social Sharing** - Share issues on WhatsApp, Facebook, Twitter, and more
 - 📊 **Status Timeline** - Visual progress tracking with timeline view
+- 📡 **Real-time Feed** - Live updates of new issues as they're reported
+- 🔍 **Advanced Search** - Comprehensive filtering by category, status, date, location
+- 👤 **User Profiles** - Detailed profiles with statistics, badges, and reputation
+- ⚡ **Priority System** - AI-based priority ranking (Critical, High, Medium, Low)
+- 📥 **Export Reports** - Download data as PDF, Excel, or CSV
 - 🔄 **Real-time Updates** - WebSocket notifications for instant status changes
 - 👥 **Role-based Access** - Distinct workflows for Citizens, Officers, and Admins
 - 📱 **Multi-channel Notifications** - SMS and WhatsApp via Twilio
@@ -307,13 +312,15 @@ This project is licensed under the MIT License.
 - [x] Multiple photos upload
 - [x] Social media sharing
 - [x] Status timeline visualization
+- [x] Real-time issue feed
+- [x] Advanced search & filters
+- [x] User profile & statistics
+- [x] Priority ranking system
+- [x] Export reports (PDF/Excel/CSV)
 - [ ] Email notifications
-- [ ] User profile pages
-- [ ] Advanced analytics
-- [ ] Export reports (PDF/Excel)
-- [ ] Mobile app (React Native)
 - [ ] AI-powered categorization
 - [ ] Chatbot support
+- [ ] Mobile app (React Native)
 - [ ] Image recognition
 - [ ] Video evidence support
 - [ ] Public API for integrations
