@@ -35,7 +35,7 @@ public class DuplicateDetectionService {
         
         // Find nearby issues with same category and active statuses
         String[] activeStatuses = {"OPEN", "ASSIGNED", "IN_PROGRESS"};
-        List<Issue> nearbyIssues = issueRepository.findNearbyIssues(
+        List<Issue> nearbyIssues = issueRepository.findNearbyIssuesByCategoryAndStatus(
                 latitude,
                 longitude,
                 distanceThreshold,
