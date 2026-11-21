@@ -9,6 +9,7 @@ services:
     name: issuetracker-backend
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     envVars:
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
@@ -45,6 +46,7 @@ services:
     name: issuetracker-frontend
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
     envVars:
       - key: VITE_API_BASE_URL
         value: https://issuetracker-backend.onrender.com/api
