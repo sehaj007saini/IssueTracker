@@ -36,4 +36,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=60s \
   CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
 
 # Run application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["sh", "-c", "echo 'Starting application...' && java -Djava.security.egd=file:/dev/./urandom -Dserver.port=8080 -jar app.jar"]

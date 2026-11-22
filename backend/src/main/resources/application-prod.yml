@@ -24,6 +24,9 @@ logging:
     com.localproblems.os: INFO
     org.hibernate.SQL: WARN
     org.springframework.security: WARN
-    org.flywaydb: DEBUG
-    com.zaxxer.hikari: DEBUG
+    org.flywaydb: INFO
+    com.zaxxer.hikari: INFO
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
 
