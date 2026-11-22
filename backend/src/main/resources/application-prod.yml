@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.postgis.PostgisPG95Dialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        temp:
+          use_jdbc_metadata_defaults: false
+  
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    out-of-order: false
+
+logging:
+  level:
+    com.localproblems.os: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.security: WARN
+    org.flywaydb: DEBUG
+    com.zaxxer.hikari: DEBUG
+
