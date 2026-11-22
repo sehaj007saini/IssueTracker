@@ -45,6 +45,7 @@ server:
   error:
     include-message: always
     include-binding-errors: always
+  shutdown: graceful
 
 # Application Configuration
 app:

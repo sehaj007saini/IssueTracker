@@ -11,6 +11,8 @@ services:
     dockerfilePath: ./backend/Dockerfile
     dockerContext: ./backend
     envVars:
+      - key: PORT
+        value: 8080
       - key: SPRING_DATASOURCE_URL
         fromDatabase:
           name: issuetracker-db
