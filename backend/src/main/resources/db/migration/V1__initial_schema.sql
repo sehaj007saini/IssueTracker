@@ -1,4 +1,5 @@
--- Enable PostGIS extension
+-- Enable PostGIS extension (required for spatial data)
+-- Note: Render.com PostgreSQL includes PostGIS support
 CREATE EXTENSION IF NOT EXISTS postgis;
 
 -- Create enum types
