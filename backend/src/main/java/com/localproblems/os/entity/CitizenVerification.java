@@ -20,7 +20,7 @@ public class CitizenVerification {
     @JoinColumn(name = "citizen_id", nullable = false)
     private User citizen;
     @Enumerated(EnumType.STRING)
-    @Column(name = "verification_result", nullable = false, columnDefinition = "verification_result")
+    @Column(name = "verification_result", nullable = false, length = 20)
     private VerificationResult verificationResult;
     @Column(columnDefinition = "TEXT")
     private String comment;

@@ -29,7 +29,7 @@ public class IssueReport {
     @Column(name = "similarity_score", precision = 5, scale = 4)
     private BigDecimal similarityScore;
     @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "report_status")
+    @Column(length = 20)
     private ReportStatus status = ReportStatus.ACTIVE;
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)

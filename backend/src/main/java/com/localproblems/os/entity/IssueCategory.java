@@ -18,7 +18,7 @@ public class IssueCategory {
     @Column(columnDefinition = "TEXT")
     private String description;
     @Enumerated(EnumType.STRING)
-    @Column(name = "severity_default", columnDefinition = "severity")
+    @Column(name = "severity_default", length = 20)
     private Issue.Severity severityDefault = Issue.Severity.MEDIUM;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")

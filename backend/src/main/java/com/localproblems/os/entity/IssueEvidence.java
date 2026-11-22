@@ -20,7 +20,7 @@ public class IssueEvidence {
     @JoinColumn(name = "uploaded_by", nullable = false)
     private User uploadedBy;
     @Enumerated(EnumType.STRING)
-    @Column(name = "evidence_type", nullable = false, columnDefinition = "evidence_type")
+    @Column(name = "evidence_type", nullable = false, length = 30)
     private EvidenceType evidenceType;
     @Column(name = "file_url", nullable = false, length = 500)
     private String fileUrl;

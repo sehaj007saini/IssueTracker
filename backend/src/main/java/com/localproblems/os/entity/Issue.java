@@ -34,10 +34,10 @@ public class Issue {
     @JoinColumn(name = "department_id")
     private Department department;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "issue_status")
+    @Column(nullable = false, length = 50)
     private IssueStatus status = IssueStatus.OPEN;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "severity")
+    @Column(nullable = false, length = 20)
     private Severity severity = Severity.MEDIUM;
     @Column(name = "report_count")
     private Integer reportCount = 0;
