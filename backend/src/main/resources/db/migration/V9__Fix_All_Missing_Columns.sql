@@ -1,12 +1,16 @@
 -- Fix all missing columns after enum to varchar conversion
 -- This migration ensures all entity columns exist in the database
 
--- Fix issue_status_history table (columns might have been dropped during enum conversion)
+-- Fix issue_status_history table (columns were dropped during enum conversion)
 ALTER TABLE issue_status_history 
 ADD COLUMN IF NOT EXISTS from_status VARCHAR(50);
 
 ALTER TABLE issue_status_history 
-ALTER COLUMN to_status TYPE VARCHAR(50) USING to_status::text;
+ADD COLUMN IF NOT EXISTS to_status VARCHAR(50) NOT NULL DEFAULT 'OPEN';
+
+-- Remove the default after adding column (we only needed it for existing rows)
+ALTER TABLE issue_status_history 
+ALTER COLUMN to_status DROP DEFAULT;
 
 -- Ensure all other tables have correct varchar columns after enum conversion
 -- (Most were handled by V6, but we're being defensive here)
