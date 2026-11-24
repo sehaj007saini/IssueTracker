@@ -17,34 +17,34 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-sm transition-colors">
+    <header className="bg-navy-900 dark:bg-navy-950 shadow-lg transition-colors border-b border-navy-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">🚧</span>
-              <span className="ml-2 text-xl font-semibold text-gray-900 dark:text-white">
-                {t('common.appName')}
+            <Link to="/" className="flex items-center group">
+              <span className="text-3xl">🏛️</span>
+              <span className="ml-3 text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                India Local Problems OS
               </span>
             </Link>
           </div>
 
-          <nav className="flex items-center space-x-4">
+          <nav className="flex items-center space-x-1">
             <Link
               to="/"
-              className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white/90 hover:text-white hover:bg-navy-800 px-4 py-2 rounded-lg text-sm font-medium transition-all"
             >
               {t('common.home')}
             </Link>
             <Link
               to="/report"
-              className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white/90 hover:text-white hover:bg-royal-600 px-4 py-2 rounded-lg text-sm font-medium transition-all"
             >
               {t('nav.reportIssue')}
             </Link>
             <Link
               to="/my-reports"
-              className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white/90 hover:text-white hover:bg-navy-800 px-4 py-2 rounded-lg text-sm font-medium transition-all"
             >
               {t('nav.myReports')}
             </Link>
@@ -52,13 +52,13 @@ export default function Header() {
               <>
                 <Link
                   to="/officer"
-                  className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white/90 hover:text-white hover:bg-navy-800 px-4 py-2 rounded-lg text-sm font-medium transition-all"
                 >
                   {t('nav.officerDashboard')}
                 </Link>
                 <Link
                   to="/analytics"
-                  className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white/90 hover:text-white hover:bg-navy-800 px-4 py-2 rounded-lg text-sm font-medium transition-all"
                 >
                   Analytics
                 </Link>
@@ -66,24 +66,26 @@ export default function Header() {
             ) : null}
             <Link
               to="/map"
-              className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white/90 hover:text-white hover:bg-navy-800 px-4 py-2 rounded-lg text-sm font-medium transition-all"
             >
               Map View
             </Link>
 
-            <DarkModeToggle />
-            <NotificationBell />
-            <LanguageSwitcher />
+            <div className="flex items-center space-x-2 ml-4 border-l border-navy-700 pl-4">
+              <DarkModeToggle />
+              <NotificationBell />
+              <LanguageSwitcher />
+            </div>
 
-            <div className="border-l border-gray-300 dark:border-gray-700 pl-4 ml-4">
+            <div className="border-l border-navy-700 pl-4 ml-4">
               <div className="flex items-center space-x-3">
-                <div className="text-sm">
-                  <p className="font-medium text-gray-900 dark:text-white">{user?.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">{user?.role}</p>
+                <div className="text-sm text-right">
+                  <p className="font-semibold text-white">{user?.name}</p>
+                  <p className="text-xs text-sky-400">{user?.role}</p>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="bg-royal-600 hover:bg-royal-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all shadow-md hover:shadow-lg"
                 >
                   Logout
                 </button>

@@ -28,30 +28,30 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-navy-50 via-white to-sky-50 dark:from-navy-950 dark:via-navy-900 dark:to-navy-800 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated Background Elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+      <div className="absolute top-0 left-0 w-72 h-72 bg-royal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-sky-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
       
       <div className="relative z-10 sm:mx-auto sm:w-full sm:max-w-md animate-slide-up">
         <div className="text-center">
-          <div className="inline-block p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg mb-4">
+          <div className="inline-block p-4 bg-white dark:bg-navy-800 rounded-2xl shadow-lg mb-4">
             <span className="text-6xl">🏛️</span>
           </div>
-          <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-4xl font-extrabold text-navy-900 dark:text-white mb-2">
             Welcome Back!
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg text-navy-600 dark:text-navy-300">
             Sign in to continue making a difference
           </p>
         </div>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10 animate-slide-up" style={{animationDelay: '0.1s'}}>
-        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl py-8 px-4 shadow-glass-lg sm:rounded-2xl sm:px-10 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white/80 dark:bg-navy-800/80 backdrop-blur-xl py-8 px-4 shadow-glass-lg sm:rounded-2xl sm:px-10 border border-navy-200 dark:border-navy-700">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
-              <div className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl animate-shake">
+              <div className="bg-danger-50 dark:bg-danger-900/20 border-2 border-danger-200 dark:border-danger-800 text-danger-700 dark:text-danger-300 px-4 py-3 rounded-xl animate-shake">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">⚠️</span>
                   <span>{error}</span>
@@ -60,7 +60,7 @@ export default function LoginPage() {
             )}
 
             <div>
-              <label htmlFor="email" className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-bold text-navy-700 dark:text-navy-300 mb-2">
                 📧 Email address
               </label>
               <input
@@ -71,13 +71,13 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="appearance-none block w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl shadow-sm placeholder-gray-400 dark:placeholder-gray-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="appearance-none block w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm placeholder-navy-400 dark:placeholder-navy-500 bg-white dark:bg-navy-700 text-navy-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-royal-500 focus:border-transparent transition-all"
                 placeholder="your@email.com"
               />
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">
+              <label htmlFor="password" className="block text-sm font-bold text-navy-700 dark:text-navy-300 mb-2">
                 🔒 Password
               </label>
               <input
@@ -88,7 +88,7 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="appearance-none block w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-xl shadow-sm placeholder-gray-400 dark:placeholder-gray-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="appearance-none block w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm placeholder-navy-400 dark:placeholder-navy-500 bg-white dark:bg-navy-700 text-navy-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-royal-500 focus:border-transparent transition-all"
                 placeholder="••••••••"
               />
             </div>
@@ -99,15 +99,15 @@ export default function LoginPage() {
                   id="remember-me"
                   name="remember-me"
                   type="checkbox"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-royal-600 focus:ring-royal-500 border-navy-300 rounded"
                 />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700 dark:text-gray-300">
+                <label htmlFor="remember-me" className="ml-2 block text-sm text-navy-700 dark:text-navy-300">
                   Remember me
                 </label>
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500">
+                <a href="#" className="font-medium text-royal-600 dark:text-royal-400 hover:text-royal-700">
                   Forgot password?
                 </a>
               </div>
@@ -117,7 +117,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-white font-bold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
+                className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-white font-bold bg-royal-600 hover:bg-royal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2">
@@ -142,10 +142,10 @@ export default function LoginPage() {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600" />
+                <div className="w-full border-t border-navy-300 dark:border-navy-600" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white/80 dark:bg-gray-800/80 text-gray-500 dark:text-gray-400 font-medium">
+                <span className="px-2 bg-white/80 dark:bg-navy-800/80 text-navy-500 dark:text-navy-400 font-medium">
                   Or continue with
                 </span>
               </div>
@@ -154,7 +154,7 @@ export default function LoginPage() {
             <div className="mt-6">
               <Link
                 to="/login/otp"
-                className="w-full flex justify-center items-center gap-2 py-3 px-4 border-2 border-blue-300 dark:border-blue-700 rounded-xl text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
+                className="w-full flex justify-center items-center gap-2 py-3 px-4 border-2 border-sky-300 dark:border-sky-700 rounded-xl text-sky-700 dark:text-sky-300 bg-sky-50 dark:bg-sky-900/20 hover:bg-sky-100 dark:hover:bg-sky-900/30 font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
               >
                 <span className="text-xl">📱</span>
                 Login with OTP (SMS/WhatsApp)
@@ -165,10 +165,10 @@ export default function LoginPage() {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600" />
+                <div className="w-full border-t border-navy-300 dark:border-navy-600" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white/80 dark:bg-gray-800/80 text-gray-500 dark:text-gray-400">
+                <span className="px-2 bg-white/80 dark:bg-navy-800/80 text-navy-500 dark:text-navy-400">
                   Don't have an account?
                 </span>
               </div>
@@ -177,7 +177,7 @@ export default function LoginPage() {
             <div className="mt-6">
               <Link
                 to="/register"
-                className="w-full flex justify-center items-center gap-2 py-3 px-4 border-2 border-gray-300 dark:border-gray-600 rounded-xl text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
+                className="w-full flex justify-center items-center gap-2 py-3 px-4 border-2 border-navy-300 dark:border-navy-600 rounded-xl text-navy-700 dark:text-navy-300 bg-white dark:bg-navy-700 hover:bg-navy-50 dark:hover:bg-navy-600 font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
               >
                 <span className="text-xl">✨</span>
                 Create new account
@@ -186,28 +186,28 @@ export default function LoginPage() {
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-xs text-gray-500 dark:text-gray-400">
+            <p className="text-xs text-navy-500 dark:text-navy-400">
               By signing in, you agree to our{' '}
-              <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Terms of Service</a>
+              <a href="#" className="text-royal-600 dark:text-royal-400 hover:underline">Terms of Service</a>
               {' '}and{' '}
-              <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Privacy Policy</a>
+              <a href="#" className="text-royal-600 dark:text-royal-400 hover:underline">Privacy Policy</a>
             </p>
           </div>
         </div>
 
         {/* Features */}
         <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-          <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-3">
+          <div className="bg-white/50 dark:bg-navy-800/50 backdrop-blur-sm rounded-xl p-3">
             <div className="text-2xl mb-1">🏆</div>
-            <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Earn Badges</div>
+            <div className="text-xs font-medium text-navy-700 dark:text-navy-300">Earn Badges</div>
           </div>
-          <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-3">
+          <div className="bg-white/50 dark:bg-navy-800/50 backdrop-blur-sm rounded-xl p-3">
             <div className="text-2xl mb-1">🗺️</div>
-            <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Track Issues</div>
+            <div className="text-xs font-medium text-navy-700 dark:text-navy-300">Track Issues</div>
           </div>
-          <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-3">
+          <div className="bg-white/50 dark:bg-navy-800/50 backdrop-blur-sm rounded-xl p-3">
             <div className="text-2xl mb-1">🌟</div>
-            <div className="text-xs font-medium text-gray-700 dark:text-gray-300">Make Impact</div>
+            <div className="text-xs font-medium text-navy-700 dark:text-navy-300">Make Impact</div>
           </div>
         </div>
       </div>

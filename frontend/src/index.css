@@ -10,11 +10,83 @@
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    @apply bg-navy-50 text-navy-900;
   }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+  }
+
+  /* Professional Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-navy-900 dark:text-white;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply text-navy-600 dark:text-navy-300;
+  }
+}
+
+@layer components {
+  /* Professional Button Styles */
+  .btn-primary {
+    @apply px-6 py-3 bg-royal-600 text-white font-semibold rounded-lg shadow-lg hover:bg-royal-700 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-royal-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-white text-royal-600 font-semibold rounded-lg border-2 border-royal-600 hover:bg-royal-50 transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-royal-500 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 bg-transparent text-navy-700 dark:text-navy-300 font-medium rounded-lg border-2 border-navy-300 dark:border-navy-600 hover:bg-navy-50 dark:hover:bg-navy-800 transition-all duration-200;
+  }
+
+  /* Professional Card Styles */
+  .card {
+    @apply bg-white dark:bg-navy-800 rounded-xl shadow-lg border border-navy-200 dark:border-navy-700 p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-2xl hover:-translate-y-1 hover:border-royal-300 dark:hover:border-royal-600;
+  }
+
+  /* Professional Input Styles */
+  .input {
+    @apply w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-lg bg-white dark:bg-navy-800 text-navy-900 dark:text-white placeholder-navy-400 focus:border-royal-500 focus:ring-2 focus:ring-royal-200 transition-all;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-success {
+    @apply bg-success-50 text-success-600 dark:bg-success-900/20 dark:text-success-400;
+  }
+
+  .badge-warning {
+    @apply bg-warning-50 text-warning-600 dark:bg-warning-900/20 dark:text-warning-400;
+  }
+
+  .badge-danger {
+    @apply bg-danger-50 text-danger-600 dark:bg-danger-900/20 dark:text-danger-400;
+  }
+
+  .badge-info {
+    @apply bg-sky-50 text-sky-600 dark:bg-sky-900/20 dark:text-sky-400;
   }
 }
 
