@@ -11,6 +11,8 @@ import ReportIssuePage from './pages/citizen/ReportIssuePage'
 import IssueDetailPage from './pages/citizen/IssueDetailPage'
 import MyReportsPage from './pages/citizen/MyReportsPage'
 import MapPage from './pages/citizen/MapPage'
+import TrendingPage from './pages/citizen/TrendingPage'
+import LeaderboardPage from './pages/citizen/LeaderboardPage'
 import OfficerHomePage from './pages/officer/OfficerHomePage'
 import AnalyticsDashboard from './pages/admin/AnalyticsDashboard'
 import NotificationPreferencesPage from './pages/settings/NotificationPreferencesPage'
@@ -44,6 +46,8 @@ function App() {
               <Route path="/issues/:id" element={<IssueDetailPage />} />
               <Route path="/my-reports" element={<MyReportsPage />} />
               <Route path="/map" element={<MapPage />} />
+              <Route path="/trending" element={<TrendingPage />} />
+              <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/officer" element={<OfficerHomePage />} />
               <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/settings/notifications" element={<NotificationPreferencesPage />} />
