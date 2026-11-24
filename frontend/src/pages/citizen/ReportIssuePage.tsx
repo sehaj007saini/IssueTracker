@@ -240,7 +240,7 @@ export default function ReportIssuePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-navy-50 dark:bg-navy-950">
       <Header />
 
       {/* Validation Modal */}
@@ -253,26 +253,26 @@ export default function ReportIssuePage() {
       )}
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white shadow sm:rounded-lg">
+        <div className="bg-white dark:bg-navy-800 shadow-lg sm:rounded-xl border border-navy-200 dark:border-navy-700">
           <div className="px-4 py-5 sm:p-6">
-            <h1 className="text-2xl font-bold text-gray-900 mb-6">
-              Report a Pothole
+            <h1 className="text-2xl font-bold text-navy-900 dark:text-white mb-6">
+              Report a Civic Issue
             </h1>
 
             {error && (
-              <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+              <div className="mb-4 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 text-danger-700 dark:text-danger-300 px-4 py-3 rounded-xl">
                 {error}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                   Location *
                 </label>
                 {location ? (
-                  <div className="bg-green-50 border border-green-200 rounded-md p-4">
-                    <p className="text-sm text-green-800">
+                  <div className="bg-success-50 dark:bg-success-900/20 border border-success-200 dark:border-success-800 rounded-xl p-4">
+                    <p className="text-sm text-success-800 dark:text-success-300">
                       ✓ Location captured: {location.lat.toFixed(6)}, {location.lng.toFixed(6)}
                     </p>
                   </div>
@@ -281,7 +281,7 @@ export default function ReportIssuePage() {
                     type="button"
                     onClick={getLocation}
                     disabled={isLoadingLocation}
-                    className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50"
+                    className="w-full flex justify-center py-3 px-4 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm text-sm font-medium text-navy-700 dark:text-navy-300 bg-white dark:bg-navy-700 hover:bg-navy-50 dark:hover:bg-navy-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-500 disabled:opacity-50"
                   >
                     {isLoadingLocation ? 'Getting location...' : '📍 Capture Current Location'}
                   </button>
@@ -289,7 +289,7 @@ export default function ReportIssuePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                   Photo *
                 </label>
                 
@@ -298,7 +298,7 @@ export default function ReportIssuePage() {
                     <button
                       type="button"
                       onClick={startCamera}
-                      className="w-full flex items-center justify-center py-3 px-4 border-2 border-dashed border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                      className="w-full flex items-center justify-center py-3 px-4 border-2 border-dashed border-navy-300 dark:border-navy-600 rounded-xl shadow-sm text-sm font-medium text-navy-700 dark:text-navy-300 bg-white dark:bg-navy-700 hover:bg-navy-50 dark:hover:bg-navy-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-500"
                     >
                       <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -318,7 +318,7 @@ export default function ReportIssuePage() {
                     
                     <label 
                       htmlFor="photo"
-                      className="w-full flex items-center justify-center py-3 px-4 border-2 border-dashed border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                      className="w-full flex items-center justify-center py-3 px-4 border-2 border-dashed border-navy-300 dark:border-navy-600 rounded-xl shadow-sm text-sm font-medium text-navy-700 dark:text-navy-300 bg-white dark:bg-navy-700 hover:bg-navy-50 dark:hover:bg-navy-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-500"
                     >
                       <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -351,14 +351,14 @@ export default function ReportIssuePage() {
                       <button
                         type="button"
                         onClick={capturePhoto}
-                        className="flex-1 py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                        className="flex-1 py-3 px-4 border border-transparent rounded-xl shadow-md text-sm font-medium text-white bg-royal-600 hover:bg-royal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-500 transition-all"
                       >
                         📸 Capture Photo
                       </button>
                       <button
                         type="button"
                         onClick={stopCamera}
-                        className="flex-1 py-3 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                        className="flex-1 py-3 px-4 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm text-sm font-medium text-navy-700 dark:text-navy-300 bg-white dark:bg-navy-700 hover:bg-navy-50 dark:hover:bg-navy-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-500 transition-all"
                       >
                         ✕ Cancel
                       </button>
@@ -400,7 +400,7 @@ export default function ReportIssuePage() {
               </div>
 
               <div>
-                <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="description" className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                   Description *
                 </label>
                 <textarea
@@ -409,13 +409,13 @@ export default function ReportIssuePage() {
                   required
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Describe the pothole (size, location details, hazards, etc.)"
-                  className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Describe the issue (size, location details, hazards, etc.)"
+                  className="block w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-royal-500 focus:border-transparent bg-white dark:bg-navy-700 text-navy-900 dark:text-white transition-all"
                 />
               </div>
 
               <div>
-                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="address" className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                   Address/Landmark (Optional)
                 </label>
                 <input
@@ -424,7 +424,7 @@ export default function ReportIssuePage() {
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                   placeholder="e.g., Near City Mall, MG Road"
-                  className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                  className="block w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-royal-500 focus:border-transparent bg-white dark:bg-navy-700 text-navy-900 dark:text-white transition-all"
                 />
               </div>
 
@@ -437,14 +437,14 @@ export default function ReportIssuePage() {
                 <button
                   type="button"
                   onClick={() => navigate('/')}
-                  className="flex-1 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                  className="flex-1 py-3 px-4 border-2 border-navy-300 dark:border-navy-600 rounded-xl shadow-sm text-sm font-medium text-navy-700 dark:text-navy-300 bg-white dark:bg-navy-700 hover:bg-navy-50 dark:hover:bg-navy-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-500 transition-all"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isValidating || isSubmitting || !location || !formData.photo || formData.description.length < 20 || !isCaptchaVerified}
-                  className="flex-1 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 py-3 px-4 border border-transparent rounded-xl shadow-lg text-sm font-medium text-white bg-royal-600 hover:bg-royal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
                 >
                   {isValidating ? (
                     <>
