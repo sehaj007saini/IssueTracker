@@ -1,6 +1,6 @@
 # 🏛️ Issue Tracker - Civic Issue Reporting Platform
 
-[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=for-the-badge&logo=render)](https://issuetracker.onrender.com)
+[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?style=for-the-badge&logo=render)](https://issuetracker-jn0r.onrender.com)
 [![Backend Status](https://img.shields.io/badge/Backend-Live-success?style=for-the-badge)](https://issuetracker-backend.onrender.com)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
@@ -10,7 +10,7 @@ A modern, feature-rich civic issue reporting and management platform with real-t
 
 ## 🚀 Live Demo
 
-**🌐 Frontend Application**: [https://issuetracker.onrender.com](https://issuetracker.onrender.com)  
+**🌐 Frontend Application**: [https://issuetracker-jn0r.onrender.com](https://issuetracker-jn0r.onrender.com)  
 **⚙️ Backend API**: [https://issuetracker-backend.onrender.com](https://issuetracker-backend.onrender.com)
 
 > **Note**: The free tier on Render may take 30-60 seconds to wake up if the service has been inactive.
@@ -300,7 +300,7 @@ For support, email your-email@example.com or open an issue in the repository.
 
 ## 🔗 Links
 
-- **Live Application**: [https://issuetracker.onrender.com](https://issuetracker.onrender.com)
+- **Live Application**: [https://issuetracker-jn0r.onrender.com](https://issuetracker-jn0r.onrender.com)
 - **API Documentation**: [https://issuetracker-backend.onrender.com/swagger-ui.html](https://issuetracker-backend.onrender.com/swagger-ui.html)
 - **GitHub Repository**: [https://github.com/sehaj007saini/IssueTracker](https://github.com/sehaj007saini/IssueTracker)
 
