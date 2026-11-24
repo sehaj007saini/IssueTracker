@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 interface Notification {
   id: string
-  type: 'issue_update' | 'comment' | 'support' | 'resolved' | 'system'
+  type: 'issue_update' | 'comment' | 'support' | 'badge' | 'system'
   title: string
   message: string
   timestamp: string
   read: boolean
   actionUrl?: string
-  icon?: string
+  icon: string
 }
 
 export default function NotificationCenter() {
@@ -19,42 +19,32 @@ export default function NotificationCenter() {
       id: '1',
       type: 'issue_update',
       title: 'Issue Status Updated',
-      message: 'Your reported pothole issue is now "In Progress"',
-      timestamp: new Date(Date.now() - 5 * 60000).toISOString(),
+      message: 'Your reported pothole on Main Street is now "In Progress"',
+      timestamp: '5 minutes ago',
       read: false,
       actionUrl: '/issues/123',
-      icon: '🔧'
+      icon: '🔔'
     },
     {
       id: '2',
-      type: 'comment',
-      title: 'New Comment',
-      message: 'Officer Kumar commented on your issue',
-      timestamp: new Date(Date.now() - 30 * 60000).toISOString(),
+      type: 'badge',
+      title: 'New Badge Earned!',
+      message: 'You unlocked the "Eagle Eye" badge for reporting 10 issues',
+      timestamp: '1 hour ago',
       read: false,
-      actionUrl: '/issues/123',
-      icon: '💬'
+      actionUrl: '/leaderboard',
+      icon: '🏅'
     },
     {
       id: '3',
-      type: 'support',
-      title: 'Issue Supported',
-      message: '5 citizens supported your issue',
-      timestamp: new Date(Date.now() - 2 * 3600000).toISOString(),
+      type: 'comment',
+      title: 'New Comment',
+      message: 'John Doe commented on your issue report',
+      timestamp: '2 hours ago',
       read: true,
-      actionUrl: '/issues/123',
-      icon: '👍'
+      actionUrl: '/issues/122#comments',
+      icon: '💬'
     },
-    {
-      id: '4',
-      type: 'resolved',
-      title: 'Issue Resolved',
-      message: 'Street lighting issue has been marked as resolved',
-      timestamp: new Date(Date.now() - 24 * 3600000).toISOString(),
-      read: true,
-      actionUrl: '/issues/456',
-      icon: '✅'
-    }
   ])
 
   const unreadCount = notifications.filter(n => !n.read).length
@@ -69,50 +59,29 @@ export default function NotificationCenter() {
     setNotifications(prev => prev.map(n => ({ ...n, read: true })))
   }
 
-  const deleteNotification = (id: string) => {
-    setNotifications(prev => prev.filter(n => n.id !== id))
-  }
-
-  const clearAll = () => {
-    setNotifications([])
-  }
-
-  const getTimeAgo = (timestamp: string) => {
-    const seconds = Math.floor((new Date().getTime() - new Date(timestamp).getTime()) / 1000)
-    
-    if (seconds < 60) return 'just now'
-    if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`
-    if (seconds < 2592000) return `${Math.floor(seconds / 86400)}d ago`
-    return new Date(timestamp).toLocaleDateString()
-  }
-
-  const getNotificationColor = (type: Notification['type']) => {
-    const colors = {
-      issue_update: 'bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400',
-      comment: 'bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-400',
-      support: 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400',
-      resolved: 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400',
-      system: 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400',
+  const getTypeColor = (type: string) => {
+    switch (type) {
+      case 'issue_update': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
+      case 'comment': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+      case 'support': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
+      case 'badge': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+      case 'system': return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200'
+      default: return 'bg-gray-100 text-gray-800'
     }
-    return colors[type]
   }
 
   return (
     <div className="relative">
-      {/* Bell Icon */}
+      {/* Notification Bell Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-        aria-label="Notifications"
+        className="relative p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
         </svg>
-        
-        {/* Unread badge */}
         {unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 bg-red-600 text-white text-xs font-bold rounded-full animate-pulse">
+          <span className="absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full animate-pulse">
             {unreadCount > 9 ? '9+' : unreadCount}
           </span>
         )}
@@ -121,118 +90,105 @@ export default function NotificationCenter() {
       {/* Notification Panel */}
       {isOpen && (
         <>
+          {/* Backdrop */}
           <div 
-            className="fixed inset-0 z-30" 
+            className="fixed inset-0 z-40" 
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-96 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 z-40 animate-slide-in-right overflow-hidden">
+          
+          {/* Panel */}
+          <div className="absolute right-0 mt-2 w-96 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 overflow-hidden animate-slide-down">
             {/* Header */}
-            <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                  Notifications
-                </h3>
-                {notifications.length > 0 && (
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-lg font-bold">Notifications</h3>
+                  <p className="text-sm text-blue-100">
+                    {unreadCount} unread
+                  </p>
+                </div>
+                {unreadCount > 0 && (
                   <button
-                    onClick={clearAll}
-                    className="text-xs text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
+                    onClick={markAllAsRead}
+                    className="px-3 py-1 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium transition-colors"
                   >
-                    Clear all
+                    Mark all read
                   </button>
                 )}
               </div>
-              {unreadCount > 0 && (
-                <button
-                  onClick={markAllAsRead}
-                  className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
-                >
-                  Mark all as read
-                </button>
-              )}
             </div>
 
             {/* Notifications List */}
             <div className="max-h-96 overflow-y-auto custom-scrollbar">
               {notifications.length === 0 ? (
-                <div className="p-8 text-center">
-                  <div className="text-6xl mb-3">🔔</div>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">No notifications</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                    We'll notify you when something happens
-                  </p>
+                <div className="p-8 text-center text-gray-500 dark:text-gray-400">
+                  <div className="text-6xl mb-4">🔕</div>
+                  <p className="text-lg font-medium">No notifications</p>
+                  <p className="text-sm">You're all caught up!</p>
                 </div>
               ) : (
-                notifications.map((notification) => (
-                  <div
-                    key={notification.id}
-                    className={`relative border-b border-gray-200 dark:border-gray-700 last:border-0 transition-colors ${
-                      !notification.read ? 'bg-primary-50 dark:bg-primary-900/10' : ''
-                    }`}
-                  >
-                    <Link
-                      to={notification.actionUrl || '#'}
-                      onClick={() => {
-                        markAsRead(notification.id)
-                        setIsOpen(false)
-                      }}
-                      className="block p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {notifications.map((notification) => (
+                    <div
+                      key={notification.id}
+                      className={`p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors ${
+                        !notification.read ? 'bg-blue-50 dark:bg-blue-900/10' : ''
+                      }`}
                     >
-                      <div className="flex items-start space-x-3">
+                      <div className="flex gap-3">
                         {/* Icon */}
-                        <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${getNotificationColor(notification.type)}`}>
-                          <span className="text-lg">{notification.icon}</span>
+                        <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${getTypeColor(notification.type)} flex items-center justify-center text-xl`}>
+                          {notification.icon}
                         </div>
 
                         {/* Content */}
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-start justify-between">
-                            <p className="text-sm font-semibold text-gray-900 dark:text-white line-clamp-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
                               {notification.title}
-                            </p>
+                            </h4>
                             {!notification.read && (
-                              <span className="flex-shrink-0 w-2 h-2 bg-primary-600 rounded-full ml-2"></span>
+                              <span className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full"></span>
                             )}
                           </div>
-                          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 mt-1">
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                             {notification.message}
                           </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                            {getTimeAgo(notification.timestamp)}
-                          </p>
+                          <div className="flex items-center gap-3 mt-2">
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                              {notification.timestamp}
+                            </span>
+                            {notification.actionUrl && (
+                              <Link
+                                to={notification.actionUrl}
+                                onClick={() => {
+                                  markAsRead(notification.id)
+                                  setIsOpen(false)
+                                }}
+                                className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                              >
+                                View →
+                              </Link>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </Link>
-
-                    {/* Delete button */}
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault()
-                        deleteNotification(notification.id)
-                      }}
-                      className="absolute top-2 right-2 p-1 text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100"
-                      title="Delete notification"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                ))
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
 
             {/* Footer */}
-            {notifications.length > 0 && (
-              <div className="p-3 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-center">
-                <Link
-                  to="/notifications"
-                  onClick={() => setIsOpen(false)}
-                  className="text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                >
-                  View all notifications →
-                </Link>
-              </div>
-            )}
+            <div className="border-t border-gray-200 dark:border-gray-700 p-3">
+              <Link
+                to="/notifications"
+                onClick={() => setIsOpen(false)}
+                className="block text-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                View all notifications
+              </Link>
+            </div>
           </div>
         </>
       )}
