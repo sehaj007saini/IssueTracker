@@ -15,6 +15,8 @@ import TrendingPage from './pages/citizen/TrendingPage'
 import LeaderboardPage from './pages/citizen/LeaderboardPage'
 import SearchPage from './pages/citizen/SearchPage'
 import AnalyticsPage from './pages/citizen/AnalyticsPage'
+import CommunityImpactPage from './pages/citizen/CommunityImpactPage'
+import CalendarPage from './pages/citizen/CalendarPage'
 import OfficerHomePage from './pages/officer/OfficerHomePage'
 import AnalyticsDashboard from './pages/admin/AnalyticsDashboard'
 import NotificationPreferencesPage from './pages/settings/NotificationPreferencesPage'
@@ -52,6 +54,8 @@ function App() {
               <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/my-analytics" element={<AnalyticsPage />} />
+              <Route path="/community-impact" element={<CommunityImpactPage />} />
+              <Route path="/calendar" element={<CalendarPage />} />
               <Route path="/officer" element={<OfficerHomePage />} />
               <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/settings/notifications" element={<NotificationPreferencesPage />} />
