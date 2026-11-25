@@ -365,10 +365,10 @@ export default function SearchPage() {
                 {[1, 2, 3, 4, 5].map(page => (
                   <button
                     key={page}
-                    className={`px-4 py-2 rounded-lg ${
+                    className={`px-4 py-2 rounded-xl transition-all ${
                       page === 1
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+                        ? 'bg-royal-600 text-white shadow-md'
+                        : 'bg-white dark:bg-navy-800 text-navy-700 dark:text-navy-300 border border-navy-300 dark:border-navy-600 hover:bg-navy-50 dark:hover:bg-navy-700'
                     }`}
                   >
                     {page}

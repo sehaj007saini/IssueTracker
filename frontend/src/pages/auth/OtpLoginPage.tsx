@@ -81,13 +81,16 @@ const OtpLoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-navy-50 to-sky-100 dark:from-navy-950 dark:to-navy-900 flex items-center justify-center p-4">
+      <div className="bg-white dark:bg-navy-800 rounded-2xl shadow-xl p-8 w-full max-w-md border border-navy-200 dark:border-navy-700">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+          <div className="inline-block p-4 bg-sky-100 dark:bg-sky-900/30 rounded-2xl mb-4">
+            <span className="text-5xl">📱</span>
+          </div>
+          <h2 className="text-3xl font-bold text-navy-900 dark:text-white mb-2">
             {step === 'phone' ? 'Login with OTP' : 'Enter OTP'}
           </h2>
-          <p className="text-gray-600">
+          <p className="text-navy-600 dark:text-navy-300">
             {step === 'phone' 
               ? 'Enter your phone number to receive OTP' 
               : `We sent a code to ${phoneNumber}`}
@@ -95,13 +98,13 @@ const OtpLoginPage: React.FC = () => {
         </div>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+          <div className="mb-4 p-3 bg-danger-50 dark:bg-danger-900/20 border border-danger-200 dark:border-danger-800 text-danger-700 dark:text-danger-300 rounded-xl text-sm">
             {error}
           </div>
         )}
 
         {success && (
-          <div className="mb-4 p-3 bg-green-50 border border-green-200 text-green-700 rounded-lg text-sm">
+          <div className="mb-4 p-3 bg-success-50 dark:bg-success-900/20 border border-success-200 dark:border-success-800 text-success-700 dark:text-success-300 rounded-xl text-sm">
             {success}
           </div>
         )}
@@ -109,7 +112,7 @@ const OtpLoginPage: React.FC = () => {
         {step === 'phone' ? (
           <form onSubmit={handleSendOtp} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                 Phone Number
               </label>
               <input
@@ -117,39 +120,39 @@ const OtpLoginPage: React.FC = () => {
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="+919876543210"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-xl focus:ring-2 focus:ring-royal-500 focus:border-transparent bg-white dark:bg-navy-700 text-navy-900 dark:text-white transition-all"
                 required
                 pattern="^\+?[1-9]\d{1,14}$"
               />
-              <p className="mt-1 text-xs text-gray-500">
+              <p className="mt-1 text-xs text-navy-500 dark:text-navy-400">
                 Include country code (e.g., +91 for India)
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                 Receive OTP via
               </label>
               <div className="flex gap-4">
-                <label className="flex items-center">
+                <label className="flex items-center cursor-pointer">
                   <input
                     type="radio"
                     value="sms"
                     checked={channel === 'sms'}
                     onChange={(e) => setChannel(e.target.value as 'sms')}
-                    className="mr-2"
+                    className="mr-2 text-royal-600 focus:ring-royal-500"
                   />
-                  📱 SMS
+                  <span className="text-navy-700 dark:text-navy-300">📱 SMS</span>
                 </label>
-                <label className="flex items-center">
+                <label className="flex items-center cursor-pointer">
                   <input
                     type="radio"
                     value="whatsapp"
                     checked={channel === 'whatsapp'}
                     onChange={(e) => setChannel(e.target.value as 'whatsapp')}
-                    className="mr-2"
+                    className="mr-2 text-royal-600 focus:ring-royal-500"
                   />
-                  💬 WhatsApp
+                  <span className="text-navy-700 dark:text-navy-300">💬 WhatsApp</span>
                 </label>
               </div>
             </div>
@@ -157,7 +160,7 @@ const OtpLoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+              className="w-full bg-royal-600 text-white py-3 rounded-xl font-semibold hover:bg-royal-700 disabled:bg-navy-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               {loading ? 'Sending...' : 'Send OTP'}
             </button>
@@ -165,7 +168,7 @@ const OtpLoginPage: React.FC = () => {
         ) : (
           <form onSubmit={handleVerifyOtp} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-navy-700 dark:text-navy-300 mb-2">
                 Enter 6-digit OTP
               </label>
               <input
@@ -173,12 +176,12 @@ const OtpLoginPage: React.FC = () => {
                 value={otp}
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
                 placeholder="000000"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg text-center text-2xl font-mono tracking-widest focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border-2 border-navy-300 dark:border-navy-600 rounded-xl text-center text-2xl font-mono tracking-widest focus:ring-2 focus:ring-royal-500 focus:border-transparent bg-white dark:bg-navy-700 text-navy-900 dark:text-white transition-all"
                 required
                 maxLength={6}
                 pattern="\d{6}"
               />
-              <p className="mt-2 text-xs text-gray-500 text-center">
+              <p className="mt-2 text-xs text-navy-500 dark:text-navy-400 text-center">
                 Code expires in {expiryMinutes} minutes
               </p>
             </div>
@@ -186,7 +189,7 @@ const OtpLoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={loading || otp.length !== 6}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+              className="w-full bg-royal-600 text-white py-3 rounded-xl font-semibold hover:bg-royal-700 disabled:bg-navy-400 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               {loading ? 'Verifying...' : 'Verify & Login'}
             </button>
@@ -196,11 +199,11 @@ const OtpLoginPage: React.FC = () => {
                 type="button"
                 onClick={handleResendOtp}
                 disabled={loading}
-                className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                className="text-royal-600 dark:text-royal-400 hover:text-royal-700 dark:hover:text-royal-300 text-sm font-medium"
               >
                 Resend OTP
               </button>
-              <span className="mx-2 text-gray-400">•</span>
+              <span className="mx-2 text-navy-400">•</span>
               <button
                 type="button"
                 onClick={() => {
@@ -208,7 +211,7 @@ const OtpLoginPage: React.FC = () => {
                   setOtp('');
                   setError('');
                 }}
-                className="text-blue-600 hover:text-blue-700 text-sm font-medium"
+                className="text-royal-600 dark:text-royal-400 hover:text-royal-700 dark:hover:text-royal-300 text-sm font-medium"
               >
                 Change Number
               </button>
@@ -219,7 +222,7 @@ const OtpLoginPage: React.FC = () => {
         <div className="mt-6 text-center">
           <button
             onClick={() => navigate('/login')}
-            className="text-gray-600 hover:text-gray-900 text-sm"
+            className="text-navy-600 dark:text-navy-300 hover:text-navy-900 dark:hover:text-white text-sm font-medium"
           >
             ← Back to password login
           </button>

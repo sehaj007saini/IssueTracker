@@ -218,7 +218,7 @@ const NotificationPreferencesPage: React.FC = () => {
                 <button
                   onClick={handleSendOtp}
                   disabled={!phoneNumber || !twilioEnabled}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-royal-600 text-white rounded-xl hover:bg-royal-700 disabled:bg-navy-300 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg"
                 >
                   Send Verification Code
                 </button>
@@ -373,7 +373,7 @@ const NotificationPreferencesPage: React.FC = () => {
         <button
           onClick={handleSavePreferences}
           disabled={saving}
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-blue-300 font-medium"
+          className="px-8 py-3 bg-royal-600 text-white rounded-xl hover:bg-royal-700 disabled:bg-royal-300 font-medium shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
         >
           {saving ? 'Saving...' : 'Save Preferences'}
         </button>
