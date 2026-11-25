@@ -214,14 +214,14 @@ function StatCard({ title, value }: any) {
   )
 }
 
-function BarItem({ label, value, total, color = 'bg-primary-600' }: any) {
+function BarItem({ label, value, total, color = 'bg-royal-600' }: any) {
   const percentage = (value / total) * 100
 
   return (
     <div>
       <div className="flex justify-between text-sm mb-1">
-        <span className="font-medium text-gray-700">{label}</span>
-        <span className="text-gray-600">{value}</span>
+        <span className="font-medium text-navy-700 dark:text-navy-300">{label}</span>
+        <span className="text-navy-600 dark:text-navy-400">{value}</span>
       </div>
       <div className="w-full bg-gray-200 rounded-full h-2">
         <div
