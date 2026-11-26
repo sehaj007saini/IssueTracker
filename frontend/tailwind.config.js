@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+// Updated: Professional government color scheme
 export default {
   darkMode: 'class',
   content: [
