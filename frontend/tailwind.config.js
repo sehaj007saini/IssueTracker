@@ -1,10 +1,25 @@
 /** @type {import('tailwindcss').Config} */
-// Updated: Professional government color scheme
+// Updated: Professional government color scheme - Force rebuild
 export default {
   darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  safelist: [
+    'bg-navy-900',
+    'bg-navy-950',
+    'bg-navy-800',
+    'bg-navy-50',
+    'text-white',
+    'text-sky-400',
+    'border-navy-800',
+    'border-navy-700',
+    'hover:bg-navy-800',
+    'hover:bg-royal-600',
+    'bg-royal-600',
+    'bg-royal-700',
+    'text-royal-600',
   ],
   theme: {
     extend: {
