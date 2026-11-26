@@ -56,7 +56,7 @@ export default function NotificationBell() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 text-gray-600 hover:text-primary-600 focus:outline-none"
+        className="relative p-2 text-white hover:text-sky-400 hover:bg-navy-800 rounded-lg transition-all focus:outline-none"
       >
         <svg
           className="h-6 w-6"
@@ -72,7 +72,7 @@ export default function NotificationBell() {
           />
         </svg>
         {unreadCount > 0 && (
-          <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+          <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-danger-600 rounded-full">
             {unreadCount > 99 ? '99+' : unreadCount}
           </span>
         )}

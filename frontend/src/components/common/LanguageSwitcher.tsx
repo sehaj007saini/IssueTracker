@@ -34,7 +34,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-primary-600 rounded-md hover:bg-gray-100 transition"
+        className="flex items-center gap-2 px-3 py-2 text-white hover:text-sky-400 rounded-lg hover:bg-navy-800 transition-all"
       >
         <span className="text-xl">{currentLanguage.flag}</span>
         <span className="text-sm font-medium">{currentLanguage.name}</span>

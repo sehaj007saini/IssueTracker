@@ -72,9 +72,15 @@ export default function Header() {
             </Link>
 
             <div className="flex items-center space-x-2 ml-4 border-l border-navy-700 pl-4">
-              <DarkModeToggle />
-              <NotificationBell />
-              <LanguageSwitcher />
+              <div className="text-white">
+                <DarkModeToggle />
+              </div>
+              <div className="text-white">
+                <NotificationBell />
+              </div>
+              <div className="text-white">
+                <LanguageSwitcher />
+              </div>
             </div>
 
             <div className="border-l border-navy-700 pl-4 ml-4">
